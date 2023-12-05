@@ -23,8 +23,10 @@ app.engine(
     extname: ".hbs",
   })
 );
-app.set("views", path.join(__dirname, "views"));
 app.set("view engine", ".hbs");
+
+//Static Folder
+app.use(express.static(path.join(__dirname, "public")));
 
 //Route
 app.use("/", require("./routes/index"));
