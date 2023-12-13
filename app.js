@@ -26,12 +26,19 @@ if (process.env.NODE_ENV === "Development") {
   app.use(morgan("dev"));
 }
 
+//Hnadlebars Helpers
+
+const { formatDate } = require("./helpers/hbs");
+
 //Handlebars
 app.engine(
   ".hbs",
   exphbs.engine({
+    helpers: {
+      formatDate,
+    },
     defaultlayout: false,
-    layoutsDir: "views/layout",
+    layoutsDir: "views/layout ",
     extname: ".hbs",
   })
 );
