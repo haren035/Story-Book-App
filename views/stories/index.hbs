@@ -4,11 +4,11 @@
           <div class="col s12 m4">
                     <div class="card">
                               <div class="card-image">
-                                        {{{editIcon user ../user _id}}}
+                                        {{!-- todo: editIcon --}}
                               </div>
                               <div class="card-content center-align">
                                         <h5>{{title}}</h5>
-                                        <p>{{stripTags (truncate body 150)}}</p>
+                                        <p>{{body}}</p>
                                         <br>
                                         <div class="chip">
                                                   <img src="{{user.image}}" alt="">
@@ -21,7 +21,7 @@
                     </div>
           </div>
           {{else}}
-          
+
           <p>No stories to display</p>
           {{/each}}
 </div>
