@@ -7,8 +7,8 @@ const passport = require("passport");
 
 router.get("/google", passport.authenticate("google", { scope: ["profile"] }));
 
-// @desc            dashboard
-// @route           GET/dashboard
+// @desc            Google auth callback
+// @route           GET /auth/google/callback
 
 router.get(
   "/google/callback",

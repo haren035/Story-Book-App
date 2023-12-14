@@ -38,7 +38,7 @@ app.engine(
       formatDate,
     },
     defaultlayout: false,
-    layoutsDir: "views/layout ",
+    layoutsDir: "views/layout",
     extname: ".hbs",
   })
 );
@@ -50,7 +50,7 @@ app.use(
   session({
     secret: "keyboard cat",
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
     store: MongoStore.create({ mongoUrl: process.env.MONGO_URI }),
   })
 );
