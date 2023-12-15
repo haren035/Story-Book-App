@@ -28,7 +28,7 @@ if (process.env.NODE_ENV === "Development") {
 
 //Hnadlebars Helpers
 
-const { formatDate, stripTags, truncate } = require("./helpers/hbs");
+const { formatDate, stripTags, truncate, editIcon } = require("./helpers/hbs");
 
 //Handlebars
 app.engine(
@@ -38,6 +38,7 @@ app.engine(
       formatDate,
       stripTags,
       truncate,
+      editIcon,
     },
     defaultlayout: false,
     layoutsDir: "views/layout",
@@ -45,6 +46,12 @@ app.engine(
   })
 );
 app.set("view engine", ".hbs");
+
+// Set global var
+app.use(function (req, res, next) {
+  res.locals.user = req.user || null;
+  next();
+});
 
 // Sessions
 
